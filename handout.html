@@ -97,21 +97,13 @@
             font-weight: 600;
         }
         
-        /* Placeholder for logo image */
-        .logo-placeholder {
-            width: 200px;
-            height: 60px;
-            background: #f3f4f6;
-            border: 2px dashed #9ca3af;
-            border-radius: 4px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto;
-            font-size: 0.7em;
-            color: #6b7280;
+        /* Text-based company branding */
+        .company-text-logo {
+            font-size: 1.1em;
+            font-weight: 700;
+            letter-spacing: 1px;
+            color: #1e3a8a;
             text-align: center;
-            line-height: 1.2;
         }
         
         /* Content area with balanced flex growth */
@@ -429,9 +421,15 @@
                 page-break-inside: avoid;
             }
             
-            /* Hide placeholder in print */
+            /* Show logo image in print, hide only text placeholder */
             .logo-placeholder {
                 display: none;
+            }
+            
+            .company-logo {
+                display: block !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
             }
         }
         
@@ -458,9 +456,7 @@
                 <div class="tagline">Sustainable Electronics Buying Guide</div>
                 <div class="branding-section">
                     <div class="presented-by">Presented by</div>
-                    <div class="logo-placeholder">
-                        <img src="title.png" alt="Computer Store KS" style="height: 60px; width: auto; max-width: 200px;">
-                    </div>
+                    <div class="company-text-logo">COMPUTER STORE KS</div>
                 </div>
             </div>
         </header>
