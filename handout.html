@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sustainable Electronics Buying Guide</title>
+    <style>
+        /* Reset and efficient font loading */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.35;
+            color: #1a202c;
+            background: #f7fafc;
+            font-size: 14px; /* Balanced font size */
+        }
+        
+        /* Strict page dimensions */
+        .page {
+            width: 8.5in;
+            height: 11in;
+            margin: 0 auto 0.5in auto;
+            background: white;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            overflow: hidden;
+            page-break-after: always;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* Optimized header */
+        .header {
+            background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+            color: white;
+            padding: 0.6in 0.4in 0.5in 0.4in;
+            text-align: center;
+            position: relative;
+            flex-shrink: 0;
+        }
+        
+        /* Circuit pattern overlay */
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px),
+                linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 16px 16px;
+            opacity: 0.3;
+        }
+        
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .logo {
+            font-size: 1.9em;
+            font-weight: 700;
+            margin-bottom: 0.2em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .tagline {
+            font-size: 1.05em;
+            margin-bottom: 0.5em;
+            opacity: 0.95;
+        }
+        
+        /* Logo asset and branding */
+        .branding-section {
+            background: rgba(255,255,255,0.95);
+            color: #1e3a8a;
+            border: 2px solid rgba(255,255,255,0.4);
+            border-radius: 8px;
+            padding: 0.6em;
+            display: inline-block;
+            backdrop-filter: blur(10px);
+        }
+        
+        .presented-by {
+            font-size: 0.75em;
+            margin-bottom: 0.3em;
+            opacity: 0.8;
+            text-align: center;
+            font-weight: 600;
+        }
+        
+        /* Placeholder for logo image */
+        .logo-placeholder {
+            width: 200px;
+            height: 60px;
+            background: #f3f4f6;
+            border: 2px dashed #9ca3af;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            font-size: 0.7em;
+            color: #6b7280;
+            text-align: center;
+            line-height: 1.2;
+        }
+        
+        /* Content area with balanced flex growth */
+        .content {
+            padding: 0.3in;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* Balanced intro section */
+        .intro {
+            background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+            border: 2px solid #60a5fa;
+            border-radius: 6px;
+            padding: 0.7em;
+            margin-bottom: 0.8em;
+            text-align: center;
+        }
+        
+        .intro h2 {
+            color: #1e40af;
+            font-size: 1.2em;
+            margin-bottom: 0.4em;
+            font-weight: 700;
+        }
+        
+        .intro p {
+            font-size: 0.9em;
+            line-height: 1.4;
+        }
+        
+        /* Sections that expand to fill space */
+        .section {
+            margin-bottom: 0.7em;
+            border: 2px solid #e5e7eb;
+            border-radius: 6px;
+            overflow: hidden;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .section-header {
+            padding: 0.7em;
+            font-weight: 700;
+            font-size: 1.1em;
+            display: flex;
+            align-items: center;
+            gap: 0.4em;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+            flex-shrink: 0;
+        }
+        
+        /* Brand-consistent colors */
+        .avoid { background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%); color: white; }
+        .recommend { background: linear-gradient(135deg, #059669 0%, #047857 100%); color: white; }
+        .tips { background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%); color: white; }
+        .info { background: linear-gradient(135deg, #6b7280 0%, #4b5563 100%); color: white; }
+        
+        .section-content {
+            padding: 0.8em;
+            background: #f9fafb;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* Responsive grid layout */
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1em;
+            flex-grow: 1;
+        }
+        
+        .comparison-item {
+            padding: 0.8em;
+            border-radius: 6px;
+            border: 2px solid;
+            background: white;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .avoid-item {
+            border-color: #f87171;
+            box-shadow: 0 2px 4px rgba(220, 38, 38, 0.1);
+        }
+        
+        .avoid-item .item-title {
+            color: #dc2626;
+            font-weight: 700;
+            margin-bottom: 0.6em;
+            font-size: 1em;
+        }
+        
+        .recommend-item {
+            border-color: #34d399;
+            box-shadow: 0 2px 4px rgba(5, 150, 105, 0.1);
+        }
+        
+        .recommend-item .item-title {
+            color: #059669;
+            font-weight: 700;
+            margin-bottom: 0.6em;
+            font-size: 1em;
+        }
+        
+        /* Balanced lists */
+        .comparison-item ul {
+            margin-left: 1em;
+            line-height: 1.45;
+            flex-grow: 1;
+        }
+        
+        .comparison-item li {
+            margin-bottom: 0.35em;
+            font-size: 0.85em;
+        }
+        
+        /* Balanced highlight boxes */
+        .highlight {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border: 2px solid #f59e0b;
+            border-radius: 5px;
+            padding: 0.6em;
+            margin: 0.6em 0;
+            font-size: 0.85em;
+            font-weight: 600;
+            box-shadow: 0 2px 4px rgba(245, 158, 11, 0.2);
+        }
+        
+        .highlight strong {
+            color: #d97706;
+        }
+        
+        /* Balanced tips grid */
+        .tips-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.7em;
+            flex-grow: 1;
+        }
+        
+        .tip-item {
+            background: white;
+            border: 2px solid #cbd5e1;
+            border-left: 4px solid #1e40af;
+            border-radius: 4px;
+            padding: 0.7em;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .tip-item strong {
+            color: #1e40af;
+            display: block;
+            margin-bottom: 0.35em;
+            font-size: 0.85em;
+        }
+        
+        .tip-item p {
+            font-size: 0.8em;
+            line-height: 1.35;
+            flex-grow: 1;
+        }
+        
+        /* Balanced company grid */
+        .company-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.8em;
+            flex-grow: 1;
+        }
+        
+        .company-item {
+            background: white;
+            border: 2px solid #6b7280;
+            border-radius: 5px;
+            padding: 0.8em;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(107, 114, 128, 0.1);
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .company-item h4 {
+            color: #1e40af;
+            font-size: 0.85em;
+            margin-bottom: 0.4em;
+            font-weight: 700;
+        }
+        
+        .company-item p {
+            font-size: 0.75em;
+            line-height: 1.35;
+            flex-grow: 1;
+        }
+        
+        /* Balanced environmental impact */
+        .env-impact {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border: 2px solid #38bdf8;
+            border-radius: 6px;
+            padding: 0.9em;
+            margin: 0.8em 0;
+            text-align: center;
+        }
+        
+        .env-impact h3 {
+            color: #0369a1;
+            font-size: 1em;
+            margin-bottom: 0.4em;
+            font-weight: 700;
+        }
+        
+        .env-impact p {
+            font-size: 0.8em;
+            line-height: 1.4;
+        }
+        
+        /* Properly visible footer */
+        .footer {
+            background: #1e3a8a;
+            color: white;
+            padding: 0.65in 0.4in;
+            text-align: center;
+            flex-shrink: 0;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5em;
+            align-items: center;
+        }
+        
+        .footer h3 {
+            color: #e5e7eb;
+            margin-bottom: 0.4em;
+            font-size: 1.05em;
+            font-weight: 700;
+        }
+        
+        .contact-info {
+            font-size: 0.85em;
+            line-height: 1.4;
+        }
+        
+        .contact-info .website {
+            font-size: 1.1em;
+            font-weight: 700;
+            color: #e5e7eb;
+            margin-bottom: 0.3em;
+        }
+        
+        .contact-info .phone {
+            font-size: 0.95em;
+            font-weight: 600;
+            margin-bottom: 0.2em;
+        }
+        
+        .contact-info .address {
+            font-size: 0.8em;
+        }
+        
+        /* Page 2 specific adjustments */
+        .page-2-content {
+            padding-top: 0.6in;
+        }
+        
+        /* Print-specific optimizations */
+        @media print {
+            body {
+                background: white !important;
+                margin: 0;
+                padding: 0;
+                font-size: 12px !important;
+            }
+            
+            .page {
+                width: 100% !important;
+                height: 100vh !important;
+                margin: 0 !important;
+                box-shadow: none !important;
+                page-break-after: always !important;
+            }
+            
+            .header {
+                background: #1e3a8a !important;
+                color: white !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            
+            .section-header {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            
+            .avoid { background: #dc2626 !important; }
+            .recommend { background: #059669 !important; }
+            .tips { background: #1e3a8a !important; }
+            .info { background: #6b7280 !important; }
+            
+            .footer {
+                background: #1e3a8a !important;
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+            
+            .section, .comparison-item, .tip-item {
+                page-break-inside: avoid;
+            }
+            
+            /* Hide placeholder in print */
+            .logo-placeholder {
+                display: none;
+            }
+        }
+        
+        @media screen {
+            body {
+                padding: 1em;
+            }
+        }
+        
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .comparison-grid, .footer-content, .tips-grid, .company-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- PAGE 1 (FRONT) - No Footer -->
+    <div class="page">
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">🔧 The Fix-it-Clinic</div>
+                <div class="tagline">Sustainable Electronics Buying Guide</div>
+                <div class="branding-section">
+                    <div class="presented-by">Presented by</div>
+                    <div class="logo-placeholder">
+                        <img src="title.png" alt="Computer Store KS" style="height: 60px; width: auto; max-width: 200px;">
+                    </div>
+                </div>
+            </div>
+        </header>
+        
+        <div class="content">
+            <div class="intro">
+                <h2>💡 Make Smart Choices for a Sustainable Future</h2>
+                <p>The electronics you buy today determine how easily they can be repaired, upgraded, and recycled tomorrow. This guide helps you choose devices that last longer and create less environmental waste.</p>
+            </div>
+            
+            <div class="section">
+                <div class="section-header avoid">
+                    <span>⚠️</span>
+                    <span>What to Avoid: Repair Nightmares</span>
+                </div>
+                <div class="section-content">
+                    <div class="comparison-grid">
+                        <div class="comparison-item avoid-item">
+                            <div class="item-title">All-in-One Computers</div>
+                            <ul>
+                                <li>Repair costs 60-80% of new price</li>
+                                <li>Components permanently soldered together</li>
+                                <li>No upgrade options available</li>
+                                <li>Entire unit becomes waste when one part fails</li>
+                                <li>Limited repair shop capabilities</li>
+                                <li>Manufacturer controls all replacement parts</li>
+                            </ul>
+                        </div>
+                        <div class="comparison-item avoid-item">
+                            <div class="item-title">Proprietary PCs (Dell/HP)</div>
+                            <ul>
+                                <li>Custom parts not available elsewhere</li>
+                                <li>Expensive brand-specific components</li>
+                                <li>Fewer repair shop options</li>
+                                <li>Designed for planned obsolescence</li>
+                                <li>Limited third-party support</li>
+                                <li>Warranty voided by independent repairs</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="highlight">
+                        <strong>💰 Reality Check:</strong> All-in-one repairs cost 60-80% of buying new, making them economically unviable to fix. You're essentially buying a disposable computer.
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <div class="section-header recommend">
+                    <span>✅</span>
+                    <span>Smart Choices: Future-Proof Investment</span>
+                </div>
+                <div class="section-content">
+                    <div class="comparison-grid">
+                        <div class="comparison-item recommend-item">
+                            <div class="item-title">Custom Built Desktops</div>
+                            <ul>
+                                <li>Standard components easily replaceable</li>
+                                <li>Any computer shop can service them</li>
+                                <li>Upgradeable for 5-7+ years</li>
+                                <li>Best price-to-performance ratio</li>
+                                <li>Parts available from multiple sources</li>
+                                <li>Complete control over specifications</li>
+                            </ul>
+                        </div>
+                        <div class="comparison-item recommend-item">
+                            <div class="item-title">Business-Grade Laptops</div>
+                            <ul>
+                                <li>Built for durability and repairability</li>
+                                <li>Widely available replacement parts</li>
+                                <li>Comprehensive service manuals</li>
+                                <li>Extended manufacturer support</li>
+                                <li>Professional repair network</li>
+                                <li>Modular design for easy servicing</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="highlight">
+                        <strong>🔧 Smart Investment:</strong> Custom computers repair for 20-40% of replacement cost and upgrade incrementally, extending useful life by years.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- PAGE 2 (BACK) - With Visible Footer -->
+    <div class="page">
+        <div class="content page-2-content">
+            <div class="section">
+                <div class="section-header tips">
+                    <span>🎯</span>
+                    <span>Professional Purchasing Tips</span>
+                </div>
+                <div class="section-content">
+                    <div class="tips-grid">
+                        <div class="tip-item">
+                            <strong>Research Repairability</strong>
+                            <p>Check iFixit.com for repair guides and difficulty scores before purchasing any device.</p>
+                        </div>
+                        <div class="tip-item">
+                            <strong>Buy Modular</strong>
+                            <p>Choose devices with replaceable RAM, storage, and batteries whenever possible.</p>
+                        </div>
+                        <div class="tip-item">
+                            <strong>Extended Warranties</strong>
+                            <p>Consider for expensive devices, but read the fine print carefully.</p>
+                        </div>
+                        <div class="tip-item">
+                            <strong>Right-to-Repair</strong>
+                            <p>Support manufacturers that provide service manuals and sell parts to consumers.</p>
+                        </div>
+                        <div class="tip-item">
+                            <strong>Local Support</strong>
+                            <p>Choose brands and models your local repair shops can actually service.</p>
+                        </div>
+                        <div class="tip-item">
+                            <strong>Think Long-term</strong>
+                            <p>Invest in quality components lasting 5-7 years rather than budget options.</p>
+                        </div>
+                        <div class="tip-item">
+                            <strong>Avoid Ultra-Thin</strong>
+                            <p>Thinner devices often sacrifice repairability for aesthetics.</p>
+                        </div>
+                        <div class="tip-item">
+                            <strong>Part Availability</strong>
+                            <p>Ensure replacement parts will be available for at least 5+ years.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="env-impact">
+                <h3>🌱 Environmental Impact</h3>
+                <p><strong>Did you know?</strong> Extending a computer's life by just 2 years reduces its environmental impact by 25%. Choosing repairable devices helps reduce the 54 million tons of e-waste generated globally each year.</p>
+            </div>
+            
+            <div class="section">
+                <div class="section-header info">
+                    <span>🏪</span>
+                    <span>Why Choose Computer Store KS?</span>
+                </div>
+                <div class="section-content">
+                    <div class="company-grid">
+                        <div class="company-item">
+                            <h4>🔧 Custom Builds</h4>
+                            <p>We specialize in building computers with standard, repairable components that last longer and cost less to maintain.</p>
+                        </div>
+                        <div class="company-item">
+                            <h4>🛠️ Expert Repairs</h4>
+                            <p>Our certified technicians can fix what others can't, using quality parts and providing honest assessments.</p>
+                        </div>
+                        <div class="company-item">
+                            <h4>🌍 Sustainability Focus</h4>
+                            <p>We believe in reducing e-waste through smart purchasing decisions and keeping devices running longer.</p>
+                        </div>
+                        <div class="company-item">
+                            <h4>🏡 Local Support</h4>
+                            <p>Proudly serving Topeka and surrounding areas since 2003 with personalized service and ongoing support.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <footer class="footer">
+            <div class="footer-content">
+                <div>
+                    <h3>🏪 Computer Store KS</h3>
+                    <div class="contact-info">
+                        <div class="website">ComputerStoreKS.com</div>
+                        <div class="phone">(785) 267-3223</div>
+                        <div class="address">2008 SW Gage Blvd<br>Topeka, KS 66604</div>
+                    </div>
+                </div>
+                <div>
+                    <h3>🔧 The Fix-it-Clinic</h3>
+                    <p><strong>Custom builds • Expert repairs • Honest advice</strong></p>
+                    <p><em>Your Local Technology Sustainability Partner</em></p>
+                    <p style="margin-top: 0.4em; font-size: 1em;"><strong>Together, we can fix it!</strong></p>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
